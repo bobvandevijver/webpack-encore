@@ -37,13 +37,6 @@ describe('Functional persistent cache tests using webpack', function() {
     // being functional tests, these can take quite long
     this.timeout(10000);
 
-    before(() => {
-        // Only clear the temp folder when explicitly requested
-        if (process.env.CLEAR_PERSISTENT_CACHE) {
-            testSetup.emptyTmpDir();
-        }
-    });
-
     describe('Basic scenarios.', () => {
         it('Persistent caching does not cause problems', (done) => {
             const config = createWebpackConfig('www/build', 'basic_cache', 'dev');
